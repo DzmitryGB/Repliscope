@@ -1,0 +1,29 @@
+Package: Repliscope
+Type: Package
+Language: en-GB
+Title: Create, Plot and Compare Replication Timing Profiles
+Version: 1.0.0
+Author: Dzmitry G Batrakou
+Maintainer: Dzmitry G Batrakou <d.batrakou@gmail.com>
+Description: Repliscope is a package to load and analyse bed-formatted read counts,  
+    create ratio of read counts from replicating to non-replicating samples, normalise
+    the ratio and plot the resulting replication timing profile. It also allows comparison
+    of two replication profiles using z-score statistics. The package also comes with 
+	interactive	Shiny app.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.1.1
+Depends:
+	R (>= 2.10),
+	ggplot2,
+	shiny
+Imports:
+	stats,
+	utils,
+	grDevices,
+	colourpicker
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
