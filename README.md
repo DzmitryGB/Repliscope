@@ -5,7 +5,7 @@ Repliscope
 
 Repliscope is an R package for creating, normalising, comparing and plotting DNA replication timing profiles. The analysis pipeline starts with BED-formatted read count files (output of [localMapper](https://github.com/DzmitryGB/localMapper)) obtained by high-throughput sequencing of DNA from replicating and non-replicating cells. There are three methods of measuring DNA replication dynamics using relative copy number (Fig): sort-seq, sync-seq and marker frequency analysis (MFA). Sort-seq uses fluorescence-activated cell sorting (FACS) to enrich for non-replicating and replicating cells from an asynchronous population. Sync-seq requires cells to be arrested in non-replicating cell cycle phase (i.e. G1), followed by release into S phase. Samples are then taken throughout S phase when cells synchronously synthesise DNA according to the replication timing programme. In the case of MFA, rapidly dividing cells in exponential growth phase are directly used as the replicating sample, while a saturated culture serves as a non-replicating control sample. While the latter approach of obtaining cells is the simplest, it also requires deeper sequencing due to decreased dynamic range and, thus, is more suitable for organisms with small genomes (typically, bacteria).
 
-<img src="vignettes/flavours.png" alt="Fig: Replication time profiling family", width = "95%">
+<img src="https://raw.githubusercontent.com/DzmitryGB/Repliscope/master/vignettes//flavours.png" alt="Fig: Replication time profiling family", width = "95%">
 
 Analysis overview
 -----------------
@@ -37,4 +37,4 @@ Output
 
 The replication profiles may further be annotated with additional genomic data, such as location of centromeres, known replication origins or other regions or points of interest. Two replication profiles may be compared to find genomic regions with statistically different replication timing. Resulting plots may be saved as pdf files containing editable vector graphics.
 
-<img src="vignettes/plotGenome.png" alt="Fig: Annotated replication timing profiles", width = "95%">
+<img src="https://raw.githubusercontent.com/DzmitryGB/Repliscope/master/vignettes/plotGenome.png" alt="Fig: Annotated replication timing profiles", width = "95%">
