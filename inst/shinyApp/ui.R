@@ -9,13 +9,6 @@ sidebarLayout(
 				div(id="aboutSide",
 					HTML("<h4 style='padding-bottom:10px;'><b>Selected publications</b></h4><ul style='text-align:justify;'>
 							<li>
-								Müller, C. A., & Nieduszynski, C. A. (2012). <i>Conservation of replication timing reveals global and local 
-								regulation of replication origin activity.</i> Genome Research, 22(10), 1953–1962.&nbsp;&nbsp;&nbsp;
-								<a href='http://doi.org/10.1101/gr.139477.112' target='_blank'>View</a>&nbsp;&nbsp;&nbsp;
-								<a href='https://www.ncbi.nlm.nih.gov/pubmed/22767388' target='_blank'>Pubmed</a>
-							</li>
-							<br>
-							<li>
 								Hawkins, M., Malla, S., Blythe, M. J., Nieduszynski, C. A., & Allers, T. (2013). 
 								<i>Accelerated growth in the absence of DNA replication origins.</i> Nature, 503(7477), 544–547. 
 								<a href='http://doi.org/10.1038/nature12650' target='_blank'>View</a>&nbsp;&nbsp;&nbsp;
@@ -28,6 +21,14 @@ sidebarLayout(
 								<a href='http://doi.org/10.1016/j.molcel.2013.05.011' target='_blank'>View</a>&nbsp;&nbsp;&nbsp;
 								<a href='https://www.ncbi.nlm.nih.gov/pubmed/    23746350' target='_blank'>Pubmed</a>
 							</li>
+							<li>
+								Müller,C.A., Hawkins,M., Retkute,R., Malla,S., Wilson,R., Blythe,M.J., Nakato,R., Komata,M., Shirahige,K., 
+								de Moura,A.P.S., Nieduszynski, C.A. (2014). <i>The dynamics of genome replication using deep sequencing.</i> 
+								Nucleic Acids Res., 42, e3..&nbsp;&nbsp;&nbsp;
+								<a href='http://doi.org/10.1093/nar/gkt878' target='_blank'>View</a>&nbsp;&nbsp;&nbsp;
+								<a href='https://www.ncbi.nlm.nih.gov/pubmed/24089142' target='_blank'>Pubmed</a>
+							</li>
+							<br>
 						</ul>
 					")
 				)

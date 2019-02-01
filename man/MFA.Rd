@@ -25,7 +25,7 @@ data(MFA)
 Replication profile for H.volcanii wild isolate DS2.
 Genomic DNA for deep sequencing was isolated from 100 ml culture
 in stationary phase (A650 > 1, DS2_stat sample) or 1 litre in
-exponential phase (A650 ∼ 0.1, DS2_exp sample). Unique
+exponential phase (A650 0.1, DS2_exp sample). Unique
 reads for the two samples were calculated in 1 kb genomic bins
 using ASM2568v1 genome assembly. The ratio was created by
 dividing 'score' values from replicating sample by non-

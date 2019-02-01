@@ -1,0 +1,16 @@
+---
+output: github_document
+---
+
+<!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%"
+)
+```
+# Repliscope
+
+23 January 2019: First submission to CRAN.
