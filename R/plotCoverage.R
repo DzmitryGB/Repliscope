@@ -87,7 +87,7 @@ plotCoverage <- function(bed,region=FALSE,plotting=TRUE) {
     breaks=labels$ticks,
     labels=labels$labels,
     name=xAxisName,
-    limits=c(theMin-theMax/200,theMax+theMax/100),expand=c(0.01,0.01)
+    limits=c(theMin-(theMax-theMin)/100,theMax+(theMax-theMin)/100),expand=c(0.01,0.01)
   )  ##  x scale
   plot<-plot+geom_segment(
     aes(x=chromStart,xend=chromEnd,y=theMedian,yend=theMedian),

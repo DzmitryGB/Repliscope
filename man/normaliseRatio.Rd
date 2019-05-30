@@ -3,27 +3,32 @@
 \name{normaliseRatio}
 \alias{normaliseRatio}
 \alias{normalizeRatio}
-\title{A function to normalise ratio values from 'ratio' column of the provided dataframe 
-to fit biologically-relevant scale. It scales values 
-either using supplied 'rFactor' value or automatically to best fit 1 to 2 scale.
-Normalisation factor used is stored in 'ratioFactor' column and also passed as the 
+\title{A function to normalise ratio values from 'ratio' column of the provided dataframe
+to fit biologically-relevant scale. It scales values
+either using supplied 'rFactor' value or automatically to best fit 1 to 2 scale
+(the upper limit of the scale may be adjusted with the upperLimit parameter).
+Normalisation factor used is stored in 'ratioFactor' column and also passed as the
 dataframe comment. To extract it, use 'attributes(mergedBed)$comment'}
 \usage{
-normaliseRatio(ratioDF, rFactor = NULL, replace = TRUE)
+normaliseRatio(ratioDF, rFactor = NULL, upperLimit = 2,
+  replace = TRUE)
 }
 \arguments{
 \item{ratioDF}{A ratio dataframe containing 'ratio' column (dataframe).}
 
 \item{rFactor}{Value to normalise by, related to replication progression (numeric, optional).}
 
+\item{upperLimit}{Top value for the scale, defaults to 2 (numeric, optional, defaults).}
+
 \item{replace}{Should the existing 'ratio' values be overwritten or stored in a new column
 (boolean, defaults to TRUE).}
 }
 \description{
-A function to normalise ratio values from 'ratio' column of the provided dataframe 
-to fit biologically-relevant scale. It scales values 
-either using supplied 'rFactor' value or automatically to best fit 1 to 2 scale.
-Normalisation factor used is stored in 'ratioFactor' column and also passed as the 
+A function to normalise ratio values from 'ratio' column of the provided dataframe
+to fit biologically-relevant scale. It scales values
+either using supplied 'rFactor' value or automatically to best fit 1 to 2 scale
+(the upper limit of the scale may be adjusted with the upperLimit parameter).
+Normalisation factor used is stored in 'ratioFactor' column and also passed as the
 dataframe comment. To extract it, use 'attributes(mergedBed)$comment'
 }
 \examples{

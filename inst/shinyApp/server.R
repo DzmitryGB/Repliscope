@@ -29,7 +29,7 @@ function(input,output,session) {
 			raw=logical(),
 			smooth=logical(),
 			color=character(),
-			stringsAsFactors=F	
+			stringsAsFactors=F
 		),
 		stats = NULL,
 		lines = NULL,
@@ -126,7 +126,7 @@ function(input,output,session) {
 						<hr>
 						<div class='myTooltip'><label>Remove chromosome</label><span class='myTooltiptext'>
 							This allows you to remove all data from individual chromosomes
-							</span></div>	
+							</span></div>
 						<div class='description'>Mitochondrial DNA is usually excluded from analysis.</div>
 						<div style='padding-left:10px;'>
 							<div id='rmChrInputDiv' class='inline' style='width:30%;margin-bottom:-5px;min-width:75px;'></div>
@@ -150,7 +150,7 @@ function(input,output,session) {
 							Only use this if data is noisy for all the chromosomes
 							</span></div>
 						<div class='description'>
-							Outliers (highlighted in grey) are either 3×IQR (interquartile range) or more above the third quartile 
+							Outliers (highlighted in grey) are either 3×IQR (interquartile range) or more above the third quartile
 							or 3×IQR or more below the first quartile.<br>
 							<b>Do not use</b> if only a few chromosomes appear noisy.<br>
 							<b>Do not use</b> more than once.
@@ -164,21 +164,21 @@ function(input,output,session) {
 							</span></div>
 						<div class='description'>
 							Specify minimum and/or maximum proportion to dataset median (pink line across) each bin should have.
-							Bins that contain fewer reads per bin than Min*Median or more that Max*Median will be discarded. 
+							Bins that contain fewer reads per bin than Min*Median or more that Max*Median will be discarded.
 						</div>
 						<div id='rmOutliersManMin' class='inline' style='padding-left:10px;width:20%;'></div>
 						<div id='rmOutliersManMax' class='inline' style='padding-left:5px;width:20%;'></div>
 						<div id='rmOutliersManBtn' class='inline' style='padding-left:20px;width:40%;'></div>
 					</div>
-					
-					
-					
+
+
+
 					<div>
 						<div id='scatterPlotButtonDiv' style='text-align: center;'><hr></div>
 					</div>
 				</div>"
 			))
-			
+
 			insertUI(selector='#rmChrInputDiv',where="beforeEnd",ui=uiOutput("chrRmOutput"))
 			insertUI(selector='#rmChrButtonDiv',where="beforeEnd",ui=actionButton("rmChrButton","Remove chromosome"))
 			insertUI(selector='#rmMaxTimesInput',where="beforeEnd",ui=textInput("rmMaxTimes",NULL,1,width="90%"))
@@ -231,7 +231,7 @@ function(input,output,session) {
 					<div class='inline'>
 						<b style='display:block;padding: 20px;'>Save data locally:</b>
 						<div id='downloadCoveragePlot' class='inline'></div>
-					</div>	
+					</div>
 				</div>"))
 			insertUI(
 				selector='#bedSaveSelect',
@@ -240,7 +240,7 @@ function(input,output,session) {
 			)
 
 			insertUI(selector='#bedSaveName',where="afterBegin",ui=textInput("bedName",NULL,names$bed))
-			
+
 			insertUI(selector='#bedSaveButton',where="afterBegin",ui=actionButton("saveBed","Save data"))
 
 			insertUI(selector='#downloadCoveragePlot',where="afterBegin",ui=downloadButton("downloadCoveragePlot","Download plot"))
@@ -283,7 +283,7 @@ function(input,output,session) {
 	})
 
 
-	observeEvent(input$rmMaxButton, { 
+	observeEvent(input$rmMaxButton, {
 		if (input$rmMaxTimes!="") {
 			DFs$bed <- rmOutliers(DFs$bed,"max",n=input$rmMaxTimes)
 			if (toggles$bedEdited == F) {
@@ -311,7 +311,7 @@ function(input,output,session) {
 		}
 	})
 
-	
+
 	observeEvent(input$rmOutliersManButton, {
 		if (input$rmOutliersManMinInput!="" & input$rmOutliersManMaxInput=="") {
 			DFs$bed <- rmOutliers(DFs$bed,"median",loLim=input$rmOutliersManMinInput)
@@ -332,9 +332,9 @@ function(input,output,session) {
 			plots$coveragePlot <- plotCoverage(DFs$bed)
 		}
 	})
-	
-	
-	
+
+
+
 
 #~ ~~~~~~~~~~~~~~~~  BED: Box/Scatter plot switch  ~~~~~~~~~~~~~~~~~~
 	observeEvent(input$scatterPlotButton, {
@@ -421,7 +421,7 @@ function(input,output,session) {
 					Only use this if data is noisy for all the chromosomes
 					</span></div>
 				<div class='description'>
-					Outliers (highlighted in grey) are either 3×IQR (interquartile range) or more above the third quartile 
+					Outliers (highlighted in grey) are either 3×IQR (interquartile range) or more above the third quartile
 					or 3×IQR or more below the first quartile.<br>
 					<b>Do not use</b> if only a few chromosomes appear noisy.<br>
 					<b>Do not use</b> more than once.
@@ -431,7 +431,7 @@ function(input,output,session) {
 		"))
 		insertUI(selector='#rmMaxTimesInput',where="beforeEnd",ui=textInput("rmMaxTimes",NULL,1,width="90%"))
 		insertUI(selector='#rmMaxButton',where="beforeEnd",ui=actionButton("rmMaxButton","Remove max values"))
-			
+
 		insertUI(selector='#rmOutliers',where="beforeEnd",ui=actionButton("rmOutButton","Remove outliers"))
 
 		insertUI(
@@ -490,7 +490,7 @@ function(input,output,session) {
 		plots$coveragePlot <- plotCoverage(DFs$bed,region=region,plotting=F)
 		toggles$coverageRegion <- T
 	})
-	
+
 	observeEvent(input$resetRegionButton, {
 		removeUI(selector='#resetRegionButton')
 		removeUI(selector='#coveragePlot')
@@ -569,9 +569,9 @@ function(input,output,session) {
 	})
 		##  outputs
 	output$downloadCoveragePlot <- downloadHandler(
-		filename = function() { 
+		filename = function() {
 			if (toggles$coverageRegion==F) {
-				paste0(names$bed, '_RawReads.pdf') 
+				paste0(names$bed, '_RawReads.pdf')
 			} else {
 				region <- paste0(input$coverageChrIn,"_",input$coverageChrStart,"-",input$coverageChrEnd)
 				paste0(names$bed,'_',region,'_RawReads.pdf')
@@ -591,9 +591,9 @@ function(input,output,session) {
 	)
 
 	output$downloadCoverageCSV <- downloadHandler(
-	    filename = function() { 
+	    filename = function() {
 			if (toggles$coverageRegion==F) {
-				paste0(names$bed, '_RawReads.tsv') 
+				paste0(names$bed, '_RawReads.tsv')
 			} else {
 				region <- paste0(input$coverageChrIn,"_",input$coverageChrStart,"-",input$coverageChrEnd)
 				paste0(names$bed,'_',region,'_RawReads.tsv')
@@ -694,7 +694,7 @@ function(input,output,session) {
 		} else {
 			toggles$ratioCtrlsIn <- T
 		}
-		
+
 	})
 
 	observeEvent(DFs$ratio, {
@@ -737,9 +737,12 @@ function(input,output,session) {
 							Use with trimmed full range S phase samples
 							</span></div>
 							<div class='description'>
-								This fits the data on a scale of one to two, while minimising the sum of the outliers.
+								This fits the data on a scale from 1 to a value entered below (2 for sorted samples, between 1 and 2 for MFA), by minimising the sum of the outliers.
 							</div>
-							<div id='autoNormBtn' style='padding-left:10px;'></div>
+							<div style='padding-left:10px;'>
+								<div id='upperLimitField' class='inline' style='width:30%;'></div>
+								<div id='autoNormBtn' class='inline'></div>
+							</div>
 						</div>
 						<div id='maNormDiv'>
 							<hr>
@@ -760,6 +763,9 @@ function(input,output,session) {
 			insertUI(selector="#loLimDiv",where="afterBegin",ui=textInput('loLimInput',NULL,placeholder="Low limit"))
 			insertUI(selector="#hiLimDiv",where="afterBegin",ui=textInput('hiLimInput',NULL,placeholder="High limit"))
 			insertUI(selector="#trimButtonDiv",where="afterBegin",ui=actionButton('trimRatioButton',"Trim"))
+
+			insertUI(selector="#upperLimitField",where="afterBegin",ui=textInput('upperLimit',NULL,"2.0",width="90%"))
+
 			insertUI(selector="#autoNormBtn",where="afterBegin",ui=actionButton('normaliseButton',"Auto normalise"))
 			insertUI(selector="#maNormField",where="afterBegin",ui=textInput('ratioFactor',NULL,ratioFactor,width="90%"))
 			insertUI(selector="#maNormButton",where="afterBegin",ui=actionButton('maNormButton',"Update"))
@@ -814,7 +820,7 @@ function(input,output,session) {
 	})
 
 	observeEvent(input$normaliseButton, {
-		DFs$ratio <- normaliseRatio(DFs$ratio,replace=F)
+		DFs$ratio <- normaliseRatio(DFs$ratio,upperLimit=as.numeric(input$upperLimit),replace=F)
 		plots$ratioPlot <- plotRatio(DFs$ratio$tmpRatio,plotting=F)
 		values$oldRatioFactor <- values$newRatioFactor
 		values$newRatioFactor <- as.numeric(attributes(DFs$ratio)$comment)
@@ -846,7 +852,7 @@ function(input,output,session) {
 		DFs$guide <- syncSeq[["guide"]]
 	})
 
-		##  Inserting plotting interface either after first ratio in or when using example plot	
+		##  Inserting plotting interface either after first ratio in or when using example plot
 	observeEvent(toggles$plotCtrlsIn, {
 		if (toggles$plotCtrlsIn == T) {
 			removeUI(selector='#examplePlotDiv')
@@ -968,7 +974,7 @@ function(input,output,session) {
 				where="afterBegin",
 				ui=textInput('plotLimHi',NULL,2,width="95%",placeholder='To')
 			)
-			insertUI(selector="#plotGenomeBtnDiv",where="afterBegin",ui=actionButton('plotGenomeButton'," Plot "))			
+			insertUI(selector="#plotGenomeBtnDiv",where="afterBegin",ui=actionButton('plotGenomeButton'," Plot "))
 		}
 	})
 
@@ -1029,12 +1035,12 @@ function(input,output,session) {
 
 
 
-	
+
 ###########################################################~~~~~~~~~~~~################################################################
 ###########################################################  PLOT TAB  ################################################################
 ###########################################################~~~~~~~~~~~~################################################################
 
-	
+
 
 
 	observeEvent(input$plotFile, {
@@ -1086,7 +1092,7 @@ function(input,output,session) {
 			##  changes to the PLOT tab
 				insertUI(selector='#sampleArea',where="beforeEnd",ui=HTML(paste0("
 					<div id='ratioDiv",as.integer(values$i)+i,"' style='color:#696969;padding-bottom:10px;'>
-						<b 
+						<b
 							style='display:block;padding-bottom:10px;color:#000000;'>
 							<i>",as.character(DFs$ratios2add$name.rep[i])," (",as.character(DFs$ratios2add$name.nonRep[i]),")</i>
 						</b>","
@@ -1261,7 +1267,7 @@ function(input,output,session) {
 		req(DFs$ratios,input$group,input$split)
 		regionChr <- input$plotChrIn
 		DFs$ratios<-smoothRatio(DFs$ratios,groupMin=as.integer(input$group),split=as.integer(input$split))
-		updateSelectInput(session,'plotChrIn',selected=regionChr)		
+		updateSelectInput(session,'plotChrIn',selected=regionChr)
 		for (i in 1:values$i) {
 			removeUI(selector=paste0("#rmSmooth",i))
 			insertUI(selector=paste0("#smoothie",i),where="afterBegin",ui=HTML(paste0(
@@ -1271,7 +1277,7 @@ function(input,output,session) {
 	})
 
 #########################################  outputs  #############################################
-	
+
 	output$plotGenomeOut <- renderPlot(plots$genomePlot)
 
 	output$plotChrOut <- renderUI({
@@ -1317,9 +1323,9 @@ function(input,output,session) {
 	)
 
 	output$downloadPlot <- downloadHandler(
-		filename = function() { 
+		filename = function() {
 			if (toggles$plotRegion==F) {
-				paste0('ratiosPlot.pdf') 
+				paste0('ratiosPlot.pdf')
 			} else {
 				region <- paste0(input$plotChrIn,"_",input$plotChrStart,"-",input$plotChrEnd)
 				paste0('ratiosPlot_',region,'.pdf')
@@ -1361,7 +1367,7 @@ function(input,output,session) {
 	output$firstRatioOut <- renderUI({
 		selectInput('firstRatioIn',"Select ratios to calculate stats:",c("First ratio"="",names$ratio$name),width="75%")
 	})
-	
+
 	output$secondRatioOut <- renderUI({
 		selectInput("secondRatioIn",NULL,c("Second ratio"="",names$ratio$name),width="75%")
 	})
@@ -1431,7 +1437,7 @@ function(input,output,session) {
 							<div id='statsPlotFeaturesDiv'></div>
 						</div>
 					</div>
-				
+
 					<div>
 						<div class='myTooltip'><ctrlH>Plotting controls</ctrlH>
 							<span class='myTooltiptext'>Choose the appearance of the plot</span>
@@ -1500,7 +1506,7 @@ function(input,output,session) {
 				where="afterBegin",
 				ui=textInput('statsPlotLimHi',NULL,2,width="95%",placeholder='To')
 			)
-			insertUI(selector="#statsPlotGenomeBtnDiv",where="afterBegin",ui=actionButton('statsPlotGenomeButton'," Plot "))			
+			insertUI(selector="#statsPlotGenomeBtnDiv",where="afterBegin",ui=actionButton('statsPlotGenomeButton'," Plot "))
 
 
 				##  Populate the samples div
@@ -1554,11 +1560,11 @@ function(input,output,session) {
 				)
 			)
 			insertUI(selector='#statsOrderDiv1',where="afterBegin",ui=selectInput('statsOrderInput1',"Order",c(1,2),selected=1))
-			insertUI(selector='#statsOrderDiv2',where="afterBegin",ui=selectInput('statsOrderInput2',"Order",c(1,2),selected=2))	
+			insertUI(selector='#statsOrderDiv2',where="afterBegin",ui=selectInput('statsOrderInput2',"Order",c(1,2),selected=2))
 			insertUI(selector='#statsRawDiv1',where="afterBegin",ui=checkboxInput('statsRawInput1',NULL,TRUE))
 			insertUI(selector='#statsRawDiv2',where="afterBegin",ui=checkboxInput('statsRawInput2',NULL,TRUE))
 			insertUI(selector='#statSmoothDiv1',where="afterBegin",ui=checkboxInput('statSmoothInput1',NULL,FALSE))
-			insertUI(selector='#statSmoothDiv2',where="afterBegin",ui=checkboxInput('statSmoothInput2',NULL,FALSE))		
+			insertUI(selector='#statSmoothDiv2',where="afterBegin",ui=checkboxInput('statSmoothInput2',NULL,FALSE))
 			insertUI(selector='#statsColorDiv1',where="afterBegin",ui=colourpicker::colourInput('statsColorInput1',NULL,"#7F7F7F"))
 			insertUI(selector='#statsColorDiv2',where="afterBegin",ui=colourpicker::colourInput('statsColorInput2',NULL,"#00688B"))
 
@@ -1611,12 +1617,12 @@ function(input,output,session) {
 			eval(parse(text=feature_str))
 			str <- paste0("featureName <- levels(DFs$",input$statsPlotFeatures,"$name)[1]")
 			eval(parse(text=str))
-			
+
 			features <- c("Lines","Circles","Rectangles","Pointers")
 			colours <- c("#00FF00","#FFFFFF","#FF0000","#FF7F00")
-			
+
 			removeUI(paste0("#stats",input$statsPlotFeatures))
-		
+
 			insertUI('#statsPlotFeaturesDiv',"beforeEnd",ui=HTML(paste0("
 				<div class='inline'>
 					<div id='stats",input$statsPlotFeatures,"' class='inline' style='max-width:75%;padding-left:10px;'></div>
@@ -1624,7 +1630,7 @@ function(input,output,session) {
 				</div>"
 			)))
 			insertUI(paste0("#stats",input$statsPlotFeatures),"afterBegin",checkboxInput(paste0("stats",input$statsPlotFeatures),paste(featureName),TRUE))
-			
+
 			insertUI(paste0("#statsColour",input$statsPlotFeatures),"afterBegin",colourpicker::colourInput(
 				paste0("stats",input$statsPlotFeatures,"ColourInput"),NULL,colours[match(input$statsPlotFeatures,features)],showColour = "background",palette = "limited"))
 		}
@@ -1653,7 +1659,7 @@ function(input,output,session) {
 		ratioNames <- unique(DFs$stats[,c("name.rep","name.nonRep")])
 		DFs$guide$name.rep <- as.character(ratioNames$name.rep)
 		DFs$guide$name.nonRep <- as.character(ratioNames$name.nonRep)
-		
+
 	##  direct action: read inputs
 		DFs$guide$order <- unlist(lapply(1:nrow(DFs$guide),function(i) {
 			as.integer(input[[paste0("statsOrderInput",i)]])
@@ -1701,13 +1707,13 @@ function(input,output,session) {
 		eval(parse(text=plotString))
 
 	##  changes to side panel
-	##  changes to main panel	
+	##  changes to main panel
 	})
 
 	output$downloadStatsPlot <- downloadHandler(
-		filename = function() { 
+		filename = function() {
 			if (toggles$statsRegion==F) {
-				paste0('statsPlot.pdf') 
+				paste0('statsPlot.pdf')
 			} else {
 				region <- paste0(input$statsPlotChrIn,"_",input$statsPlotChrStart,"-",input$statsPlotChrEnd)
 				paste0('statsPlot_',region,'.pdf')
