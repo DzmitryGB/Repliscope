@@ -1,4 +1,4 @@
-#' Sequence read coverage for wild type replicating sample
+#' Sequence read coverage for wild type S.cerevisiae W303 replicating sample
 #'
 #' Sequence read coverage for wild type replicating sample 
 #' (T7107 strain). The cells were stained with DNA dye and sorted

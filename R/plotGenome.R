@@ -39,7 +39,7 @@
 #'     region="chrVII:0-1090944",genome=sacCer3[["genome"]],lines=sacCer3[["cen"]],
 #'     circles=sacCer3[["ori"]],colourLines="black")
 #'
-#' plotGenome(MFA,region='chr1:0-2848000')
+#' plotGenome(MFAseq,region='chr1:0-2848000')
 #' # plot marker frequency analysis for H.volcanii isolate DS2
 
 plotGenome <- function(ratioDFs,geom="geom_point",ylims=c(1,2),plotting=TRUE,

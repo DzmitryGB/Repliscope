@@ -3,7 +3,7 @@
 \name{plotBed}
 \alias{plotBed}
 \title{A function to boxplot 'score' column of a BED dataframe,
-per unique chromosome name in the ‘chrom’ column. The resulting plot also highlights outliers
+per unique chromosome name in the 'chrom' column. The resulting plot also highlights outliers
 based on the inter quartile range (IQR). The genome wide median is plotted as a pink line through the boxplots.}
 \usage{
 plotBed(bed, plotting = TRUE)
@@ -15,7 +15,7 @@ plotBed(bed, plotting = TRUE)
 }
 \description{
 A function to boxplot 'score' column of a BED dataframe,
-per unique chromosome name in the ‘chrom’ column. The resulting plot also highlights outliers
+per unique chromosome name in the 'chrom' column. The resulting plot also highlights outliers
 based on the inter quartile range (IQR). The genome wide median is plotted as a pink line through the boxplots.
 }
 \examples{

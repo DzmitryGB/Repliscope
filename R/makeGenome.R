@@ -32,6 +32,11 @@ makeGenome <- function(DF,region=FALSE) {
         ends <- append(ends,max(DF[DF$chrom==chr,"chromEnd"]))
         midY <- append(midY,max(DF[DF$chrom==chr,"ratio"])/2)
       }
+    }  else if ("Trep" %in% colnames(DF)) {
+      for (chr in chroms) {
+        ends <- append(ends,max(DF[DF$chrom==chr,"chromEnd"]))
+        midY <- append(midY,max(na.omit(DF[DF$chrom==chr,"Trep"]))/2)
+      }
     }
     genome <- data.frame(
       "chrom"=as.character(chroms),

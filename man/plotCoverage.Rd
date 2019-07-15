@@ -3,7 +3,7 @@
 \name{plotCoverage}
 \alias{plotCoverage}
 \title{A function to scatterplot 'score' column of a BED dataframe
-plotCoverage function plots values in the ‘score’ column of the supplied bed dataframe as a function of
+plotCoverage function plots values in the 'score' column of the supplied bed dataframe as a function of
 chromosome coordinates. The genome wide median is plotted as a pink line.}
 \usage{
 plotCoverage(bed, region = FALSE, plotting = TRUE)
@@ -17,7 +17,7 @@ plotCoverage(bed, region = FALSE, plotting = TRUE)
 }
 \description{
 A function to scatterplot 'score' column of a BED dataframe
-plotCoverage function plots values in the ‘score’ column of the supplied bed dataframe as a function of
+plotCoverage function plots values in the 'score' column of the supplied bed dataframe as a function of
 chromosome coordinates. The genome wide median is plotted as a pink line.
 }
 \examples{

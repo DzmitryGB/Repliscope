@@ -14,7 +14,7 @@
 #'
 #' @docType data
 #'
-#' @usage data(MFA)
+#' @usage data(MFAseq)
 #'
 #' @format data frame with 3887 rows and 7 variables:
 #' \describe{
@@ -36,5 +36,5 @@
 #' DS2_stat stationary sample: \href{https://www.ncbi.nlm.nih.gov/sra/SRX202170[accn]}{SRA}
 #'
 #' @examples
-#' data(MFA)
-"MFA"
+#' data(MFAseq)
+"MFAseq"

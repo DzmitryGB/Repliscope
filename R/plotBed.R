@@ -1,5 +1,5 @@
 #' A function to boxplot 'score' column of a BED dataframe,
-#' per unique chromosome name in the ‘chrom’ column. The resulting plot also highlights outliers
+#' per unique chromosome name in the 'chrom' column. The resulting plot also highlights outliers
 #' based on the inter quartile range (IQR). The genome wide median is plotted as a pink line through the boxplots.
 #' @param bed A dataframe containing 'score' and 'chrom' columns (dataframe).
 #' @param plotting Should the plot object be sent to the default device? (boolean, defaults to TRUE).

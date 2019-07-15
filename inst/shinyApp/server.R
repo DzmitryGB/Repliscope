@@ -737,7 +737,7 @@ function(input,output,session) {
 							Use with trimmed full range S phase samples
 							</span></div>
 							<div class='description'>
-								This fits the data on a scale from 1 to a value entered below (2 for sorted samples, between 1 and 2 for MFA), by minimising the sum of the outliers.
+								This fits the data on a scale from 1 to a value entered below (2 for sorted samples, between 1 and 3 for MFA-seq), by minimising the sum of the outliers.
 							</div>
 							<div style='padding-left:10px;'>
 								<div id='upperLimitField' class='inline' style='width:30%;'></div>

@@ -3,7 +3,7 @@
 \docType{data}
 \name{W303norm}
 \alias{W303norm}
-\title{Sequence read coverage ratios for wild type sample}
+\title{Normalised sequence read coverage ratios for wild type S.cerevisiae W303}
 \format{data frame with 11340 rows and 7 variables:
 \describe{
 	\item{chrom}{short chromosome name}

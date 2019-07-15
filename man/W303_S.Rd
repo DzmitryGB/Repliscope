@@ -3,7 +3,7 @@
 \docType{data}
 \name{W303_S}
 \alias{W303_S}
-\title{Sequence read coverage for wild type replicating sample}
+\title{Sequence read coverage for wild type S.cerevisiae W303 replicating sample}
 \format{data frame with 11820 rows and 5 variables:
 \describe{
 	\item{chrom}{short chromosome name}

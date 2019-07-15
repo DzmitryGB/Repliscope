@@ -2,7 +2,7 @@ Package: Repliscope
 Type: Package
 Language: en-GB
 Title: Replication Timing Profiling using DNA Copy Number
-Version: 1.0.1
+Version: 1.1.0
 Author: Dzmitry G Batrakou
 Maintainer: Dzmitry G Batrakou <d.batrakou@gmail.com>
 Description: Create, Plot and Compare Replication Timing Profiles. The method is described in Muller et al., (2014) <doi: 10.1093/nar/gkt878>.

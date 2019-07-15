@@ -1,4 +1,4 @@
-#' Sequence read coverage ratios for wild type sample
+#' Normalised sequence read coverage ratios for wild type S.cerevisiae W303
 #'
 #' Sequence read coverage ratios for wild type sample 
 #' (T7107 strain). The cells were stained with DNA dye and sorted

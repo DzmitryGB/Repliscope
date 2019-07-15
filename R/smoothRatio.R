@@ -8,19 +8,19 @@
 #'
 #' @param ratioDF A ratio dataframe or combined ratios dataframe containing 'ratio' column (dataframe).
 #' @param groupMin Minimum number of values required to make a group (integer, defaults to 5).
-#' @param split Minimum number of adjacent bins with missing values to close current group (integer, defaults to 5).
+#' @param splitNum Minimum number of adjacent bins with missing values to close current group (integer, defaults to 5).
 #' @export
 #' @importFrom stats na.omit smooth.spline
 #' @keywords spline replication genomics bioinformatics
 #' @examples
 #' ratioDF <- smoothRatio(W303norm)
 
-smoothRatio <- function(ratioDF,groupMin=5,split=5) {
+smoothRatio <- function(ratioDF,groupMin=5,splitNum=5) {
   if (groupMin<4) {
     warning('Minimum group size is four. Setting groupMin parameter to 4.')
     groupMin <- 4
   }
-  if (split<1) stop('Split must be a positive integer')
+  if (splitNum<1) stop('Split must be a positive integer')
   ratioDF$chrom <- factor(ratioDF$chrom, levels = unique(ratioDF$chrom))
   if ("name.rep" %in% colnames(ratioDF)) {
     ratioDF$name.rep <- factor(ratioDF$name.rep, levels = unique(ratioDF$name.rep))
@@ -62,7 +62,7 @@ smoothRatio <- function(ratioDF,groupMin=5,split=5) {
         i <- 1
         for (i in 1:(length(starts)-1)) {
           i <- i + 1
-          if ( (starts[i] - starts[i-1])/bin > (split-1) ) { j <- j+1 }
+          if ( (starts[i] - starts[i-1])/bin > (splitNum-1) ) { j <- j+1 }
           group <- append(group,j)
         }
         ## Remove small groups
